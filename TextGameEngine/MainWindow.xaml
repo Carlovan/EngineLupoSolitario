@@ -1,0 +1,15 @@
+﻿<Window x:Name="winMain" x:Class="TextGameEngine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Engine" Height="350" Width="525" Loaded="winMain_Loaded">
+    <Grid x:Name="grdMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="txtLog" HorizontalAlignment="Stretch" Margin="10,35,10,4" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+        <Label Content="Log:" Margin="10,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0"/>
+
+
+    </Grid>
+</Window>
