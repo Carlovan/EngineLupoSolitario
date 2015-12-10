@@ -53,7 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ArteRamas.cs" />
+    <Compile Include="RamasArt.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Effect.cs" />
@@ -63,7 +63,7 @@
     <Compile Include="MapManager.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="MoveModule.cs" />
-    <Compile Include="NameArte.cs" />
+    <Compile Include="ArtName.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Room.cs" />
     <Page Include="MainWindow.xaml">

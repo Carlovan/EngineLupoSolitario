@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TextGameEngine
 {
-    enum NameArte
+    /// <summary>
+    /// An enumeration used for the Art's names
+    /// </summary>
+    enum ArtName
     {
         Mimetismo, Caccia, SestoSenso, Orientamento, Guarigione, Scherma
     }
