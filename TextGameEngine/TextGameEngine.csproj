@@ -53,11 +53,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArteRamas.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Door.cs" />
+    <Compile Include="Effect.cs" />
+    <Compile Include="EffectType.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="MapManager.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="MoveModule.cs" />
+    <Compile Include="NameArte.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Room.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
