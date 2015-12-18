@@ -57,30 +57,18 @@ namespace TextGameEngine
 		}
 
         /// <summary>
-        /// Constructor for a weapon with an Effect
+        /// Constructor for a weapon with an Effect or a usable Item
         /// </summary>
         /// <param name="n">Name of the weapon</param>
-        /// <param name="w">Set this to true</param>
+        /// <param name="w">True if weapon, false if usable</param>
         /// <param name="e">Effect of the weapon</param>
         public Item(string n, bool w, Effect e)
         {
             Name = n;
-            IsWeapon = w;
-            IsUsable = false;
-            Eff = e;
-        }
-
-        /// <summary>
-        /// Constructor for a complex item
-        /// </summary>
-        /// <param name="n">Name of the Item</param>
-        /// <param name="u">Set this to true</param>
-        /// <param name="e">Effect of the Item</param>
-        public Item (string n, bool u, Effect e)
-        {
-            Name = n;
-            IsWeapon = false;
-            IsUsable = u;
+			if (w)
+				IsWeapon = true;
+			else
+				IsUsable = true;
             Eff = e;
         }
 

@@ -53,8 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RamasArt.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="RamasArt.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="EffectType.cs" />

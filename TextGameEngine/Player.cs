@@ -39,7 +39,7 @@ namespace TextGameEngine
         /// <summary>
         /// Ramas Arts of the Player
         /// </summary>
-        public List<RamasArt> ArtiRamas { get; set; }
+        public List<RamasArt> RamasArts { get; set; }
 
         /// <summary>
         /// Inventory of the Player
@@ -61,7 +61,7 @@ namespace TextGameEngine
             Health = h;
             MaxHealth = h;
 			HasNoWeapon = false;
-			ArtiRamas = new List<RamasArt>(ar);
+			RamasArts = new List<RamasArt>(ar);
             Inv = i;
         }
 
