@@ -38,8 +38,18 @@ namespace TextGameEngine
                 new Room("Laboratorio di chimica", "", new Door[]{null, new Door("Al corridoio", 1, null), null, null})
             });
 
-            var mod = (new MoveModule().Load(map));
-            
+            MoveModule modMove = new MoveModule();
+            modMove.UpdateLog += modMove_UpdateLog;
+            Control moveControl = modMove.Load(map);
+            Grid.SetRow(moveControl, 1);
+            grdMain.Children.Add(moveControl);
+        }
+
+        void modMove_UpdateLog(object sender, EventArgs e)
+        {
+            txtLog.Text += map.GetLogString() + "\n\n";
+            txtLog.Focus();
+            txtLog.CaretIndex = txtLog.Text.Length;
         }
 
         

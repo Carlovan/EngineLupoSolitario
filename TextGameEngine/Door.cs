@@ -32,7 +32,10 @@ namespace TextGameEngine
         /// <param name="dest">Destination index</param>
         public Door(string tit, int dest, Condition[] c)
         {
-            Conditions = (Condition[])c.Clone();
+            if (c != null)
+                Conditions = (Condition[])c.Clone();
+            else
+                Conditions = null;
             IsOpen = true;
             Title = tit;
             DestinationIndex = dest;

@@ -40,6 +40,26 @@ namespace TextGameEngine
         }
 
         /// <summary>
+        /// Sets the controls properties regarding the current room
+        /// </summary>
+        public string GetLogString()
+        {
+            string logText = "";
+            logText += String.Format("----{0}----{1}\nDirections:", CurrentRoom.Title, CurrentRoom.Description);
+
+            if (CurrentRoom.Doors[(int)Direction.North] != null)
+                logText += "\nN -> " + CurrentRoom.Doors[(int)Direction.North].Title;
+            if (CurrentRoom.Doors[(int)Direction.East] != null)
+                logText += "\nE -> " + CurrentRoom.Doors[(int)Direction.East].Title;
+            if (CurrentRoom.Doors[(int)Direction.South] != null)
+                logText += "\nS -> " + CurrentRoom.Doors[(int)Direction.South].Title;
+            if (CurrentRoom.Doors[(int)Direction.West] != null)
+                logText += "\nW -> " + CurrentRoom.Doors[(int)Direction.West].Title;
+
+            return logText;
+        }
+
+        /// <summary>
         /// List of the rooms inside the map
         /// </summary>
         private Room[] Rooms { get; set; }

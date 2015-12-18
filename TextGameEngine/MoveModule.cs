@@ -17,9 +17,14 @@ namespace TextGameEngine
 {
     class MoveModule : Module
     {
+        //Module name
         string Title = "Move";
+
+        //Buttons standard size
         static int buttonWidth = 60;
         static int buttonHeight = 20;
+
+        //Controls handled by the module
         Button[] buttons = new Button[]
         {
             new Button(){
@@ -64,6 +69,8 @@ namespace TextGameEngine
 
         public override Control Load(MapManager mm)
         {
+            mapManager = mm;
+
             GroupBox gb = new GroupBox();
             gb.Header = Title;
 
@@ -82,6 +89,10 @@ namespace TextGameEngine
 
         public void DirButton_Click(object sender, RoutedEventArgs e)
         {
+            if (UpdateLog == null)
+                return;
+
+
             if (((Button)sender).Name == "btnNorth")
                 mapManager.ChangeRoom(Direction.North);
             else if (((Button)sender).Name == "btnEast")
