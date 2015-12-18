@@ -32,10 +32,10 @@ namespace TextGameEngine
         private void winMain_Loaded(object sender, RoutedEventArgs e)
         {
             map = new MapManager(new Room[]{
-                new Room("Laboratorio 13", "", new Door[]{new Door("Al corridoio", 1), null, null, null}),
-                new Room("Corridoio", "", new Door[]{new Door("Al lab dell'Angela", 2), null, new Door("Al lab 13", 0), new Door("Al lab chimica", 3)}),
-                new Room("Laboratorio dell'Angela", "", new Door[]{null, null, new Door("Al corridoio", 1), null}),
-                new Room("Laboratorio di chimica", "", new Door[]{null, new Door("Al corridoio", 1), null, null})
+                new Room("Laboratorio 13", "", new Door[]{new Door("Al corridoio", 1, null), null, null, null}),
+                new Room("Corridoio", "", new Door[]{new Door("Al lab dell'Angela", 2, null), null, new Door("Al lab 13", 0, null), new Door("Al lab chimica", 3, null)}),
+                new Room("Laboratorio dell'Angela", "", new Door[]{null, null, new Door("Al corridoio", 1, null), null}),
+                new Room("Laboratorio di chimica", "", new Door[]{null, new Door("Al corridoio", 1, null), null, null})
             });
 
             var mod = (new MoveModule().Load(map));

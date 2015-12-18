@@ -40,11 +40,14 @@ namespace TextGameEngine
 
         public void CheckConditions(Player p)
         {
-            for(int i = 0; i < Conditions.Length; i++)
-            {
-                if (!Conditions[i].IsVerified(p))
-                    IsOpen = false;
-            }
+			if(Conditions != null)
+				for (int i = 0; i < Conditions.Length; i++)
+				{
+					if (Conditions[i].IsVerified(p))
+						IsOpen = true;
+					else
+						IsOpen = false;
+				}
         }
     }
 }
