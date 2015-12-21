@@ -15,59 +15,38 @@ using System.Windows.Shapes;
 
 namespace TextGameEngine
 {
-    class MoveModule : Module
+    static class MoveModule : Module
     {
         //Module name
-        string Title = "Move";
+        static string Title = "Move";
 
         //Buttons standard size
         static int buttonWidth = 60;
         static int buttonHeight = 20;
 
         //Controls handled by the module
-        Button[] buttons = new Button[]
+        static Control[] controls = new Control[]
         {
-            new Button(){
-                Name = "btnNorth",
-                Content = "North",
+            new ComboBox(){
+                Name = "cbbDirections",
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(0, 0, 0, 50),
-                Width = buttonWidth,
-                Height = buttonHeight
+                Margin = new Thickness(0, 0, 0, 50)
             },
             new Button(){
-                Name = "btnEast",
-                Content = "East",
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(120, 0, 0, 0),
-                Width = buttonWidth,
-                Height = buttonHeight
-            },
-            new Button(){
-                Name = "btnSouth",
-                Content = "South",
+                Name = "btnGo",
+                Content = "Go",
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(0, 50, 0, 0),
                 Width = buttonWidth,
                 Height = buttonHeight
-            },
-            new Button(){
-                Name = "btnWest",
-                Content = "West",
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(0, 0, 120, 0),
-                Width = buttonWidth,
-                Height = buttonHeight
             }
         };
 
-        public override event EventHandler UpdateLog;
+        static public override event ModuleUpdateHandler Update;
 
-        public override Control Load(MapManager mm)
+        static public override Control Load(MapManager mm)
         {
             mapManager = mm;
 
@@ -76,40 +55,24 @@ namespace TextGameEngine
 
             Grid gr = new Grid();
 
-            foreach (var x in buttons)
+            foreach (var x in controls)
             {
-                x.Click += DirButton_Click;
                 gr.Children.Add(x);
             }
+
+            ((Button)controls[1]).Click += GoButton_Click;
 
             gb.Content = gr;
 
             return gb;
         }
 
-        public void DirButton_Click(object sender, RoutedEventArgs e)
+        static public void GoButton_Click(object sender, RoutedEventArgs e)
         {
-            if (UpdateLog == null)
+            if (Update == null)
                 return;
 
-
-            if (((Button)sender).Name == "btnNorth")
-                mapManager.ChangeRoom(Direction.North);
-            else if (((Button)sender).Name == "btnEast")
-                mapManager.ChangeRoom(Direction.East);
-            else if (((Button)sender).Name == "btnSouth")
-                mapManager.ChangeRoom(Direction.South);
-            else if (((Button)sender).Name == "btnWest")
-                mapManager.ChangeRoom(Direction.West);
-
-            var crd = mapManager.CurrentRoom.Doors;
-
-            buttons[(int)Direction.North].IsEnabled = crd[(int)Direction.North] != null && crd[(int)Direction.North].IsOpen;
-            buttons[(int)Direction.South].IsEnabled = crd[(int)Direction.South] != null && crd[(int)Direction.South].IsOpen;
-            buttons[(int)Direction.East].IsEnabled = crd[(int)Direction.East] != null && crd[(int)Direction.East].IsOpen;
-            buttons[(int)Direction.West].IsEnabled = crd[(int)Direction.West] != null && crd[(int)Direction.West].IsOpen;
-
-            UpdateLog(this, new EventArgs());
+            Update(this, ((ComboBox)controls[0]).SelectedItem);
         }
     }
 }

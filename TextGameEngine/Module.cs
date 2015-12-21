@@ -19,7 +19,12 @@ namespace TextGameEngine
     {
         protected MapManager mapManager;
 
-        abstract public event EventHandler UpdateLog;
+        protected delegate void ModuleUpdateHandler(object sender, object data);
+
+        /// <summary>
+        /// Event called when come action is executed on it by the user
+        /// </summary>
+        abstract public event ModuleUpdateHandler Update;
 
         /// <summary>
         /// Create the object to show and use the module
